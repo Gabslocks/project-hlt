@@ -12,11 +12,11 @@
   <head>
 	   <meta charset="utf-8">
        <title>before audit</title>
-      <link href="style.css" media="screen" rel="stylesheet">
+      <link href="Log_style.css" media="screen" rel="stylesheet">
 	  	<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>			
 </head> 
 
-	<body>
+	<body class='logg'>
 	
 	<?php
 	if(isset($_SESSION["session_username"])){
@@ -78,18 +78,16 @@ while($row=mysqli_fetch_assoc($query))
 		<div id="Login">
 		<h1>Login</h1>
 		<form action="" id="loginform" method="POST" name="loginform">
-		<p><label for="user_login">Username<br>
+		<p><label for="username">Username<br>
 		<input class="input" id="username" name="username" size="20" type="text" required value="" pattern = "[A-Za-z0-9]{4,20}" title = "Логин не может быть короче 4 символов и больше 20. Должен содержать буквы A-z и числа"></label></p>
-		<p><label for="user_pass">Password<br>
+		<p><label for="password">Password<br>
 		 <input class="input" id="password" minlength="8" name="password" size="32" required type="password" pattern = "(?=.*\d)(?=.*[a-z])(?=.*[A-Z]){8,32}" title = "Пароль не может быть короче 8 символов, больше 32 и должен содержать хотя бы одну цифру, одну маленькую и одну большую латинскую букву."  value=""></label></p> 
 			<p class="submit"><input class="button" name="login"type= "submit" value="Sign in"></p>
 			<p class="helptext">In case of an error, please contact us by email</p>
 		   </form>
 		 </div>
 	  </div>
- 
-<footer><p>Contact: ?????</p>
-            <p>Roflan developer, 2020</p> </footer>	
+
 </body>
 </html>
 

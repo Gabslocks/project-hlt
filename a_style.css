@@ -1,0 +1,116 @@
+* {
+    box-sizing: border-box;
+}
+html, body, div, span, h1, h2, h3, h4, h5, h6, p, a, ul, li{
+                 
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+}
+body {
+    font-family:  Arial, Verdana, sans-serif;    
+    background-color: #FFF;
+	color: #0a255c;
+}
+
+input {
+width: 160px;
+}
+select {
+width: auto;
+}
+#b_add {
+position: relative; /* Относительное позиционирование */
+    top: 0.5em; /* Сдвигаем вниз */
+}
+table {
+    background-color: #aaa;
+}
+tbody {
+    background-color: #ddd;
+    height: auto;
+    overflow: auto;
+    width: 1200px;
+}
+td {
+    padding: auto;
+    width:auto;
+    border: 1px solid black;
+}
+
+thead > tr, tbody{
+    display:block;}
+
+#header{ 
+    background-color: #0a255c;
+}
+
+#article{
+    
+    padding: 10px;
+	text-align: center;
+	min-height:170px;
+    
+}
+#article table{
+
+	text-align: center;
+	margin: 0 auto;
+}
+
+#footer{ 
+    border-top: 1px solid #ccc;
+    font-size: .8em;    
+    text-align: center;
+    padding: 10px 10px 30px 10px;
+}
+#footer p {
+    max-width: 1200px;
+    margin: 0 auto; 
+}
+#footer{
+    min-width: 768px;
+}
+
+
+/* шапка
+.......................................................... */
+	nav {
+		margin: 10px 0;
+		background-color: #0a255c;
+		text-align: center;
+	}
+
+	/* убираем отступы и поля, а также list-style для "ul", 
+	 * и добавляем "position:relative" */
+	nav ul {
+		padding:0;
+		margin:0;
+		list-style: none;
+		position: relative;
+		}
+
+	/* применяем inline-block позиционирование к элементам навигации */
+	nav ul li {
+		margin: 0px -7px 0 0;
+		display:inline-block;
+		background-color: #0a255c;
+		}
+
+	/* стилизуем ссылки */
+	nav a {
+		display:block;
+		padding:0 10px;
+		color:#FFF;
+		font-size:20px;
+		line-height: 60px;
+		text-decoration:none;
+	}
+
+	/* изменяем цвет фона при наведении курсора */
+	nav a:hover {
+		background-color: #008080;
+	}
+		

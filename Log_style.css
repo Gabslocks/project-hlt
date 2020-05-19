@@ -1,0 +1,146 @@
+
+/*= GENERAL STYLES
+--------------------------------------------------------*/
+body {
+    font-family: 'Open Sans', sans-serif;
+    color: #777;
+	
+	}
+.logg
+{
+	background: #FFF url(headericon.png) no-repeat fixed center;
+	background-size: cover;
+}
+.prepp
+{
+	background: #808080;
+}
+
+a {
+    color: #f58220;
+    font-weight: 400;
+}
+
+span {
+    font-weight: 300;
+    color: #f58220;
+}
+
+.mlogin {
+    margin: 170px auto 0;
+}
+.mprep {
+    margin: 170px auto 0;
+}
+
+
+.mregister {
+    margin: 80px auto 0;
+}
+
+.error {
+    margin: 40px auto 0;
+    border: 1px solid #777;
+    padding: 3px;
+    color: #000;
+    text-align: center;
+    width: 650px;
+    background: #B71C1C;
+}
+
+.regtext {
+    font-size: 13px;
+    margin-top: 26px;
+    color: #000;
+}
+
+/*= CONTAINERS
+--------------------------------------------------------*/
+
+.container {
+    padding: 25px 16px 25px 10px;
+    font-weight: 400;
+    overflow: hidden;
+    width: 500px;
+    height: auto;
+    background: #0a255c;
+    -webkit-box-shadow: 0 1px 3px rgba(0,0,0,.13);
+    -moz-box-shadow: 0 1px 3px rgba(0,0,0,.13);
+    box-shadow: 0 4px 4px rgba(0,0,0,.25);
+}
+
+
+.container h1 {
+    color: #FFF;
+    text-align: center;
+    font-weight: 300;
+	font-size: auto;
+    margin-top: 13px;
+}
+
+.container label {
+    color: #FFF;
+    font-size: 14px;
+}
+
+#login {
+    width: 320px;
+    margin: auto;
+    padding-bottom: 15px;
+}
+#prep {
+    width: 320px;
+    margin: auto;
+    padding-bottom: 15px;
+}
+
+.container form .input,.container input[type=text],.container input[type=password],.container input[type=e] {
+    background: #FAFAFA;
+    font-size: 24px;
+    line-height: 1;
+    width: 100%;
+    padding: 3px;
+    margin: 0 6px 5px 0;
+    outline: none;
+    border: 1px solid #d9d9d9;
+}
+.container form .input,.container input[type=text] {
+    background: #FAFAFA;
+    font-size: 24px;
+    line-height: 1;
+    width: 100%;
+    padding: 3px;
+    margin: 0 6px 5px 0;
+    outline: none;
+    border: 1px solid #d9d9d9;
+}
+
+.container form .input:focus {
+    border: 1px solid #f58220;
+    -webkit-box-shadow: 0 0 3px 0 rgba(245,130,32,0.75);
+    -moz-box-shadow: 0 0 3px 0 rgba(245,130,32,0.75);
+    box-shadow: 0 0 3px 0 rgba(245,130,32,0.75);
+}
+
+
+/*= BUTTONS
+--------------------------------------------------------*/
+
+.button{
+border: solid 1px #000;
+	background: #c4c4c4;
+	
+	color: #000;
+padding: 10px 15px;
+
+float: right;
+cursor: pointer;
+}
+
+
+.button:hover{
+background: #fff;
+	background: -webkit-gradient(linear, left top, left bottom, from(#c4c4c4), to(#fff));
+	background: -moz-linear-gradient(top,  #c4c4c4,  #fff);
+	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#c4c4c4', endColorstr='#fff');
+}

@@ -10,9 +10,9 @@ if($_SESSION["session_role"]==10)
 ?>	
 <!DOCTYPE html>
 <html>
-    <head>
+     <head>
         <meta charset="utf-8">
-        <link href="struct.css" rel="stylesheet">
+        <link href="s_main.css" rel="stylesheet">
         <title>Preliminary questionairre</title>
     </head>
     <body>
@@ -27,35 +27,24 @@ if($_SESSION["session_role"]==10)
         <div id="header">
             <h1>Before audit</h1>
 			<h2>Welcome, <span><?php echo $_SESSION['session_username'];?></span></h2>
-			<nav>
-			    <ul>
-			       <li><a>Бургер</a></li>	
-						<ul>
-							<li><a href="main.php">Structure</a></li>
-							<li><a href="prod_PS.php">Production</a></li>
-							<li><a href="prod_BCP.php">BCP</a></li>
-							<li><a href="loT.php">List of test</a></li>														
-							<li><a href="it_dm.php">IT department</a></li>
-							<li><a href="loS.php">List of system</a></li>
-							<li><a href="logout.php">Exit</a></li>	
-						</ul>
-                    </li>
-			    </ul>
-			</nav> 
+			<nav class="menu">
+				<input type="checkbox" id="checkbox" class="menu_checkbox">
+				<label for="checkbox" class="menu_btn"><div class="menu_icon"></div></label>
+				<div class="menu_container">
+					<ul class="menu_list">
+						<li class="menu_item"><a class="menu_link" href="main.php">Structure</a></li>
+						<li class="menu_item"><a class="menu_link" href="prod_PS.php">Production</a></li>
+						<li class="menu_item"><a class="menu_link" href="loT.php">List of test</a></li>														
+						<li class="menu_item"><a class="menu_link" href="prod_BCP.php">BCP</a></li>
+						<li class="menu_item"><a class="menu_link" href="it_dm.php">IT department</a></li>
+						<li class="menu_item"><a class="menu_link" href="loS.php">List of system</a></li>
+						<li class="menu_item"><a class="menu_link" href="logout.php">Exit</a></li>
+					</ul>
+				</div>
+			</nav>
         </div>
-		 
           
-        <div class="wrapper">
-            <!--<div id="sidebar1" class="aside">
-                <h2>Лента новостей</h2>
-                <p>//////////////////</p>
-                <h3>Options</h3>
-                <ul>
-                    <li>Item1</li>
-                    <li>Item2</li>
-                    <li>Item3</li>
-                </ul>
-            </div> -->
+
             <div id="article">             
 						<?php 
 						$id_pers=$_SESSION['session_id_us'];
@@ -73,25 +62,26 @@ if($_SESSION["session_role"]==10)
 						{
 
 							$row = mysqli_fetch_row($result);
-							
+							$j = $i + 1;
 							echo "
 							<tr><td><form method = 'POST' action = 'Prod_BCP_up.php'> 
 								<fieldset>
 								<table>
+								<tr><td colspan='2'>$j BCP</td></tr>
 								<tr>
-									<td><fieldset style='heigth:300px;width:300px;'>
+									<td>
 										<table>
 											<tr><td colspan='2'>BCP staff during peak hour</td></tr>
 											<tr><input type='hidden' name='id_bcp' id='id_bcp' value='$row[0]'/></tr>
 											<tr><td><label for='Phleb'>Phlebotomist</label></td> <td><input value='$row[3]' type='text' name='Phleb' id='Phleb' /></td></tr>
 											<tr><td><label for='Nurse'>Nurse</label></td> <td><input value='$row[4]' type='text' name='Nurse' id='Nurse' /></td></tr>
-											<tr><td><label for='Tech'>Technician</label></td> <td><input value='$row[5]' type='text' name='Tech' id='Tech' /></td></tr>
+											<tr><td><label for='Tech'>Technician</label></td><td><input value='$row[5]' type='text' name='Tech' id='Tech' /></td></tr>
 											<tr><td><label for='Bio'>Biologist</label></td> <td><input value='$row[6]' type='text' name='Bio' id='Bio' /></td></tr>
 											<tr><td><label for='Sec'>Secretary</label></td> <td><input value='$row[7]' type='text' name='Sec' id='Sec' /></td></tr>
 											<tr><td><label for='Other_h'>Other</label></td> <td><input value='$row[8]' type='text' name='Other_h' id='Other_h' /></td></tr>
 										</table>
-									</fieldset></td>
-									<td><fieldset style='heigth:300px;width:300px;'>
+									</td>
+									<td>
 										<table>
 											<tr><td colspan='2'>BCP sample treatment</td></tr>
 											<tr><td><label for='Registarion'>Registarion</label></td> <td><select type='text' name='Registarion' id='Registarion' />";
@@ -132,7 +122,7 @@ if($_SESSION["session_role"]==10)
 												<option selected value='no'>no</option></td></tr>";}
 											echo "<tr><td><label for='Other_t'>Other</label></td> <td><input type='text' value ='$row[14]' name='Other_t' id='Other_t' /></td></tr>";
 										echo "</table>
-									</fieldset></td></tr>
+									</td></tr>
 								<tr><td><label for='med_val'>Who does medical validation for BCP orders?</label></td> <td><input type='text' value ='$row[15]' name='med_val' id='med_val' /></td></tr>
 								<tr><td><label for='BsK'>BCP staff KPIs</label></td> <td><select type='text' name='BsK' id='BsK' />";
 												if ($row[16]=='yes')
@@ -142,7 +132,7 @@ if($_SESSION["session_role"]==10)
 												{echo "<option value='yes'>yes</option>
 												<option selected value='no'>no</option></td></tr>";}
 								echo "<tr><td><label for='Pres_o_and_f'>Prescription origin and form (clinician/patienu-self, paper/integration/machion-readable blancs/etc)</label></td> <td><input type='text' value ='$row[17]'  name='Pres_o_and_f' id='Pres_o_and_f' /></td></tr>
-								<tr><td><input  type='submit' name='update_bcp' value='Update'/></td></tr>
+								<tr><td colspan='2'><input  type='submit' name='update_bcp' value='Update'/></td></tr>
 								</table>
 							</fieldset>
 							</form></td></tr>";
@@ -157,8 +147,7 @@ if($_SESSION["session_role"]==10)
 					?>
 				</table>
 			</div>
-        </div>
-		
+
         <div id="footer">
             <p>Contact:  </p>
             <p>Roflan developer, 2020</p>
@@ -166,6 +155,6 @@ if($_SESSION["session_role"]==10)
     </body>
 </html>
 <?php
-	} else header("location:admin.php");
+	} else header("location:admin.php?level=0");
 
 ?>

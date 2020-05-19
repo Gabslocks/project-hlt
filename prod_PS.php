@@ -12,7 +12,7 @@ if($_SESSION["session_role"]==10)
 <html>
     <head>
         <meta charset="utf-8">
-        <link href="struct.css" rel="stylesheet">
+        <link href="s_main.css" rel="stylesheet">
         <title>Preliminary questionairre</title>
     </head>
     <body>
@@ -27,35 +27,24 @@ if($_SESSION["session_role"]==10)
         <div id="header">
             <h1>Before audit</h1>
 			<h2>Welcome, <span><?php echo $_SESSION['session_username'];?></span></h2>
-			<nav>
-			    <ul>
-			       <li><a>Бургер</a></li>	
-						<ul>
-							<li><a href="main.php">Structure</a></li>
-							<li><a href="prod_PS.php">Production</a></li>
-							<li><a href="prod_BCP.php">BCP</a></li>
-							<li><a href="loT.php">List of test</a></li>														
-							<li><a href="it_dm.php">IT department</a></li>
-							<li><a href="loS.php">List of system</a></li>
-							<li><a href="logout.php">Exit</a></li>	
-						</ul>
-                    </li>
-			    </ul>
-			</nav> 
+			<nav class="menu">
+				<input type="checkbox" id="checkbox" class="menu_checkbox">
+				<label for="checkbox" class="menu_btn"><div class="menu_icon"></div></label>
+				<div class="menu_container">
+					<ul class="menu_list">
+						<li class="menu_item"><a class="menu_link" href="main.php">Structure</a></li>
+						<li class="menu_item"><a class="menu_link" href="prod_PS.php">Production</a></li>
+						<li class="menu_item"><a class="menu_link" href="loT.php">List of test</a></li>														
+						<li class="menu_item"><a class="menu_link" href="prod_BCP.php">BCP</a></li>
+						<li class="menu_item"><a class="menu_link" href="it_dm.php">IT department</a></li>
+						<li class="menu_item"><a class="menu_link" href="loS.php">List of system</a></li>
+						<li class="menu_item"><a class="menu_link" href="logout.php">Exit</a></li>
+					</ul>
+				</div>
+			</nav>
         </div>
 		 
           
-        <div class="wrapper">
-            <!--<div id="sidebar1" class="aside">
-                <h2>Лента новостей</h2>
-                <p>//////////////////</p>
-                <h3>Options</h3>
-                <ul>
-                    <li>Item1</li>
-                    <li>Item2</li>
-                    <li>Item3</li>
-                </ul>
-            </div> -->
             <div id="article">             
                           
 		
@@ -94,7 +83,8 @@ if($_SESSION["session_role"]==10)
 									<form method = 'POST' action = 'Prod_PS_up.php'>
 									<fieldset>
 									<table class='hidden-empty-cells'>
-									<tr><input type='hidden' name='id_ps' id='id_ps' value='$row[0]'/></tr>
+									<tr><input name='name_ps' id='name_ps' value='$row[2]' disabled/></tr>
+										<tr><input type='hidden' name='id_ps' id='id_ps' value='$row[0]'/></tr>
 										<tr><td>Location of Production Site</td><td><select type='text' name='loc_PS' id='loc_PS'/>";
 											if ($row[3]=='Inside Hospital')
 												{echo "<option selected value='Inside Hospital'>Inside Hospital</option>
@@ -131,16 +121,16 @@ if($_SESSION["session_role"]==10)
 												<option selected value='none'>none</option></td></tr>";}
 									echo "</table>
 								
-									<fieldset style='heigth:500px;width:500px;'><table class='hidden-empty-cells'>
+									<fieldset ><table class='hidden-empty-cells'>
 											<tr><td colspan='2'>Time Table</td></tr>
 											<tr><td>Number of technitians per shift max</td><td><input value='$row[11]' type='number' name='TT_num_of_tech' id='TT_num_of_tech'/></td></tr>		
 											<tr><td>Technicians working hour per week total</td><td><input value='$row[12]' type='number' name='TT_tech_work' id='TT_tech_work'/></td></tr>						
 											<tr><td>Number of validation biologists max per shift </td><td><input value='$row[13]' type='number' name='TT_num_of_val_bio' id='TT_num_of_val_bio'/></td></tr>				
-											<tr><td>validation biologists working hour per week total</td><td><input value='$row[14]' type='number' name='TT_val_bio' id='TT_val_bio'/></td></tr>				
+											<tr><td>Validation biologists working hour per week total</td><td><input value='$row[14]' type='number' name='TT_val_bio' id='TT_val_bio'/></td></tr>				
 									</table></fieldset>
 
 									<table class='hidden-empty-cells'>
-										<tr><td>Technical validation of results</td><td><select type='text' name='tech_val' id='tech_val'/>";
+										<tr><td >Technical validation of results</td><td  colspan='3'><select type='text' name='tech_val' id='tech_val'/>";
 												if($row[15]=='manual')
 												{echo "<option value='none'>none</option>
 												<option selected value='manual'>manual</option>
@@ -164,7 +154,7 @@ if($_SESSION["session_role"]==10)
 									echo "</table>
 										
 									<fieldset><table class='hidden-empty-cells'>
-										<tr><td colspan='2'>Type of the contract with suppliers? CPR?</td></tr>
+										<tr><td colspan='3'>Type of the contract with suppliers? CPR?</td></tr>
 										<tr><td></td><td>Supplier</td><td>CPR/non CPR</td></tr>
 										<tr><td>Chemistry</td><td><input type='text value='$row[16]' name='Chemistry_sup' id='Chemistry_sup'/></td><td><select name='Chemistry_CPR' id='Chemistry_CPR'/>";	
 																											if($row[17]=='All Inclusive CPR')
@@ -342,10 +332,8 @@ if($_SESSION["session_role"]==10)
 					?>
 					
 				</table>
-
-				
 			</div>
-        </div>
+
 		
         <div id="footer">
             <p>Contact:  </p>
@@ -354,6 +342,6 @@ if($_SESSION["session_role"]==10)
     </body>
 </html>
 <?php
-	} else header("location:admin.php");
+	} else header("location:admin.php?level=0");
 
 ?>

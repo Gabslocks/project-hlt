@@ -12,7 +12,7 @@ if($_SESSION["session_role"]==10)
 <html>
     <head>
         <meta charset="utf-8">
-        <link href="struct.css" rel="stylesheet">
+        <link href="s_main.css" rel="stylesheet">
         <title>Preliminary questionairre</title>
     </head>
     <body>
@@ -27,35 +27,24 @@ if($_SESSION["session_role"]==10)
         <div id="header">
             <h1>Before audit</h1>
 			<h2>Welcome, <span><?php echo $_SESSION['session_username'];?></span></h2>
-			<nav>
-			    <ul>
-			       <li><a>Бургер</a></li>	
-						<ul>
-							<li><a href="main.php">Structure</a></li>
-							<li><a href="prod_PS.php">Production</a></li>
-							<li><a href="prod_BCP.php">BCP</a></li>
-							<li><a href="loT.php">List of test</a></li>														
-							<li><a href="it_dm.php">IT department</a></li>
-							<li><a href="loS.php">List of system</a></li>
-							<li><a href="logout.php">Exit</a></li>	
-						</ul>
-                    </li>
-			    </ul>
-			</nav> 
+			<nav class="menu">
+				<input type="checkbox" id="checkbox" class="menu_checkbox">
+				<label for="checkbox" class="menu_btn"><div class="menu_icon"></div></label>
+				<div class="menu_container">
+					<ul class="menu_list">
+						<li class="menu_item"><a class="menu_link" href="main.php">Structure</a></li>
+						<li class="menu_item"><a class="menu_link" href="prod_PS.php">Production</a></li>
+						<li class="menu_item"><a class="menu_link" href="loT.php">List of test</a></li>														
+						<li class="menu_item"><a class="menu_link" href="prod_BCP.php">BCP</a></li>
+						<li class="menu_item"><a class="menu_link" href="it_dm.php">IT department</a></li>
+						<li class="menu_item"><a class="menu_link" href="loS.php">List of system</a></li>
+						<li class="menu_item"><a class="menu_link" href="logout.php">Exit</a></li>
+					</ul>
+				</div>
+			</nav>
         </div>
 		 
           
-        <div class="wrapper">
-            <!--<div id="sidebar1" class="aside">
-                <h2>Лента новостей</h2>
-                <p>//////////////////</p>
-                <h3>Options</h3>
-                <ul>
-                    <li>Item1</li>
-                    <li>Item2</li>
-                    <li>Item3</li>
-                </ul>
-            </div> -->
             <div id="article">             
                           
 
@@ -171,9 +160,8 @@ if($_SESSION["session_role"]==10)
 					?>
 
 				</table>
-
 			</div>
-        </div>
+
 		
         <div id="footer">
             <p>Contact:  </p>
@@ -182,6 +170,6 @@ if($_SESSION["session_role"]==10)
     </body>
 </html>
 <?php
-	} else header("location:admin.php");
+	} else header("location:admin.php?level=0");	;
 mysqli_close($link);
 ?>
